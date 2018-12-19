@@ -1,0 +1,174 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=0.5in]{geometry}
+\title{Ensembles}
+\date{}
+\begin{document}
+\maketitle
+\section{Canonical Ensemble}
+In this ensemble, the independent variables are $N,V,T$ and the partition function is given by the following expression,
+\begin{equation}\label{eq:partitionfunction}
+Q_{N}=\frac{1}{N!h^{3N}}\int\cdot\cdot\cdot\int e^{-\beta \mathcal{H}}{\rm d}\vec{q}_{1}\cdot\cdot\cdot{\rm d}\vec{q}_{N},
+\end{equation}
+where the pre-factor $1/N!$ has its basis in the indistinguishability  of particles. In the absence of this pre-factor, extensive thermodynamic quantities such as free energy, entropy scale as $N\ln{N}$ instead of $N$. This is known as the Gibbs paradox. The other factor $h^{3N}$ is the smallest measurable phase space volume. In other words, one cannot distinguish between two states below this volume. This has its origin in the Heisenberg's uncertainty principle where the error (standard deviation) in position and its conjugate momentum are related by the following inequality,
+\begin{equation}
+\Delta q_{i}\Delta p_{i} \geq h,
+\end{equation}
+where $h$ is the Planck's constant. The Hamiltonian $\mathcal{H}$ can be expressed in a general way by,
+\begin{equation}
+\mathcal{H}=\sum_{i}\frac{p_{i}^{2}}{2m} + U(q_{1}\cdot\cdot\cdot q_{N}),
+\end{equation}
+where the first and second terms are the kinetic and potential energies, respectively. The probability density function for this ensemble is then,
+\begin{equation}
+P(q_{1}\cdot\cdot\cdot q_{N},p_{1}\cdot\cdot\cdot p_{N})=\frac{e^{-\beta \mathcal{H}}}{N!h^{3N}Q_{N}},
+\end{equation}
+such that $\int P(q_{1}\cdot\cdot\cdot q_{N},p_{1}\cdot\cdot\cdot p_{N}){\rm d} \Gamma=1$, where ${\rm d} \Gamma={\rm d}q_{1}\cdot\cdot\cdot {\rm d}q_{N}{\rm d}p_{1}\cdot\cdot\cdot {\rm d}p_{N}$ is a phase space volume element. In the canonical ensemble, the Helmholtz free energy $A$ is related to partition function $Q_{N}$ in the following way,
+\begin{equation}
+A(N,V,T)=-k_{\rm B}T\ln{Q_{N}}.
+\end{equation}
+\subsection{Ideal gas}
+In this section, we look at a system of interacting particles in a canonical ensemble. In these systems, $\mathcal{H}^{\rm ideal}=\sum_{i}p_{i}^{2}/2m$ and the partition function takes the following form,
+\begin{equation}\label{eq:partitionfunctionideal}
+\begin{split}
+Q_{N}^{\rm ideal}&=\frac{1}{N!h^{3N}}\int\cdot\cdot\cdot\int e^{-\beta \mathcal{H}^{\rm ideal}}{\rm d}q_{1}\cdot\cdot\cdot {\rm d}q_{N}{\rm d}p_{1}\cdot\cdot\cdot {\rm d}p_{N},\\
+&=\frac{1}{N!h^{3N}}\int\cdot\cdot\cdot\int e^{-\beta \sum_{i}\frac{p_{i}^{2}}{2m}}{\rm d}q_{1}\cdot\cdot\cdot {\rm d}q_{N}{\rm d}p_{1}\cdot\cdot\cdot {\rm d}p_{N}=\frac{V^{N}}{N!h^{3N}}\int\cdot\cdot\cdot\int e^{-\beta \sum_{i}\frac{p_{i}^{2}}{2m}}{\rm d}p_{1}\cdot\cdot\cdot {\rm d}p_{N},\\
+&=\frac{V^{N}}{N!h^{3N}}\left(\int e^{-\beta \frac{p_{1}^{2}}{2m}}{\rm d}p_{1}\right)^{N}=\frac{V^{N}}{N!h^{3N}}\left(\frac{2\pi m}{\beta}\right)^{3N/2}=\frac{V^{N}}{N!}\left(\sqrt{\frac{2\pi m}{h^{2}\beta}}\right)^{3N}=\frac{V^{N}}{N!\lambda^{3N}},\\
+\end{split}
+\end{equation}
+where $\lambda$ is the de-Broglie wavelength. The Helmholtz free energy for the ideal gas system is then,
+\begin{equation}
+\begin{split}
+A^{\rm ideal}(N,V,T)&=-k_{\rm B}T\ln{Q_{N}^{\rm ideal}},\\
+&=-k_{\rm B}T\ln{\frac{V^{N}}{N!\lambda^{3}}}=-k_{\rm B}T\left(N\ln{V}-\ln{N!}-N\ln{\lambda^{3}}\right),\\
+&=-k_{\rm B}T\left(N\ln{V}-N\ln{N}+N-N\ln{\lambda^{3}}\right).
+\end{split}
+\end{equation}
+One can then calculate quantities such as chemical potential $\mu^{\rm ideal}$ and pressure $p$ in the following way,
+\begin{equation}
+\begin{split}
+\mu^{\rm ideal}&=\left(\frac{\partial A^{\rm ideal}}{\partial N}\right)_{V,T}=-k_{\rm B}T\left(\ln{V}-\ln{N}-\ln{\lambda^{3}}\right),\\
+&=k_{\rm B}T\ln{\left(\rho\lambda^{3}\right)},
+\end{split}
+\end{equation}
+where $\rho=N/V$. The ideal gas pressure is then,
+\begin{equation}
+\begin{split}
+p^{\rm ideal}&=-\left(\frac{\partial A^{\rm ideal}}{\partial V}\right)_{N,T}=k_{\rm B}T\frac{\partial}{\partial V}\left(N\ln{V}-N\ln{N}+N-N\ln{\lambda^{3}}\right),\\
+p^{\rm ideal}V&=Nk_{\rm B}T,
+\end{split}
+\end{equation}
+which is the ideal gas equation.
+\subsection{Real Gas}
+The partition function $Q_{N}$ (Eq.~(\ref{eq:partitionfunctionideal})) can be expressed in the following way,
+\begin{equation}
+Q_{N}=\frac{Q_{N}^{\rm ideal}\mathcal{Z}_{N}}{V^{N}},
+\end{equation}
+where 
+\begin{equation}
+\mathcal{Z}_{N}=\int\cdot\cdot\cdot\int e^{-\beta U}{\rm d}\vec{q}_{1}\cdot\cdot\cdot{\rm d}\vec{q}_{N},
+\end{equation}
+is the configurational partition function. The pressure in such as system is then
+\begin{equation}
+\begin{split}
+p&=-\left(\frac{\partial A}{\partial V}\right)_{N,T}=k_{\rm B}T\frac{\partial}{\partial V}\left(\ln{Q_{N}^{\rm ideal}} + \ln{\frac{\mathcal{Z}_{N}}{V^{N}}}\right),\\
+&=p^{\rm ideal}+p^{\rm int},
+\end{split}
+\end{equation}
+where $p^{\rm ideal}$ is the ideal gas constribution and $p^{\rm int}$ arises due to the interactions within the particles. Let us understand the $p^{\rm int}$ term further,
+\begin{equation}
+\begin{split}
+\beta p^{\rm int}&=\frac{\partial}{\partial V}\left(\ln{\frac{\mathcal{Z}_{N}}{V^{N}}}\right)=\frac{\partial}{\partial V}\left(\ln{\mathcal{Z}_{N}}-N\ln{V}\right),\\
+&=\left(\frac{1}{\mathcal{Z}_{N}}\frac{\partial}{\partial V}\int\cdot\cdot\cdot\int e^{-\beta U}{\rm d}\vec{q}_{1}\cdot\cdot\cdot{\rm d}\vec{q}_{N}\right)-\rho.
+\end{split}
+\end{equation}
+Let us make a change of variables where ${d}\vec{q}_{1}=V{\rm d}\vec{q}_{1}^{~\prime}$. The above expression is then,
+\begin{equation}
+\begin{split}
+\beta p^{\rm int}&=\left(\frac{1}{\mathcal{Z}_{N}}\frac{\partial}{\partial V}\int\cdot\cdot\cdot\int V^{N}e^{-\beta U}{\rm d}\vec{q}_{1}^{~\prime}\cdot\cdot\cdot{\rm d}\vec{q}_{N}^{~\prime}\right)-\rho,\\
+&=\left(\frac{NV^{N-1}}{\mathcal{Z}_{N}}\int\cdot\cdot\cdot\int e^{-\beta U}{\rm d}\vec{q}_{1}^{~\prime}\cdot\cdot\cdot{\rm d}\vec{q}_{N}^{~\prime}-\rho\right)+\frac{V^{N}}{\mathcal{Z}_{N}}\int\cdot\cdot\cdot\int \frac{\partial e^{-\beta U}}{\partial V}{\rm d}\vec{q}_{1}^{~\prime}\cdot\cdot\cdot{\rm d}\vec{q}_{N}^{~\prime},\\
+&=-\frac{\beta V^{N}}{\mathcal{Z}_{N}}\int\cdot\cdot\cdot\int e^{-\beta U}\frac{\partial U(\vec{q}_{1}\cdot\cdot\cdot\vec{q}_{N})}{\partial V}{\rm d}\vec{q}_{1}^{~\prime}\cdot\cdot\cdot{\rm d}\vec{q}_{N}^{~\prime},\\
+&=-\frac{\beta V^{N}}{\mathcal{Z}_{N}}\int\cdot\cdot\cdot\int e^{-\beta U}\left(\sum_{i=1}^{N}\frac{\partial U(\vec{q}_{1}\cdot\cdot\cdot\vec{q}_{N})}{\partial \vec{q}_{i}}\frac{\partial q_{i}}{\partial V}\right){\rm d}\vec{q}_{1}^{~\prime}\cdot\cdot\cdot{\rm d}\vec{q}_{N}^{~\prime},\\
+&=-\frac{\beta V^{N}}{\mathcal{Z}_{N}}\int\cdot\cdot\cdot\int e^{-\beta U}\left(\sum_{i=1}^{N}\frac{\partial U(\vec{q}_{1}\cdot\cdot\cdot\vec{q}_{N})}{\partial \vec{q}_{i}} \vec{q}_{i}^{~\prime}\right){\rm d}\vec{q}_{1}^{~\prime}\cdot\cdot\cdot{\rm d}\vec{q}_{N}^{~\prime},\\
+&=\frac{\beta V^{N-1}}{\mathcal{Z}_{N}}\int\cdot\cdot\cdot\int \left(\sum_{i=1}^{N} \Vec{F}_{i}\vec{q}_{i}\right)e^{-\beta U}{\rm d}\vec{q}_{1}^{~\prime}\cdot\cdot\cdot{\rm d}\vec{q}_{N}^{~\prime},\\
+&=\frac{\beta}{V\mathcal{Z}_{N}}\int\cdot\cdot\cdot\int \left(\sum_{i=1}^{N} \vec{q}_{i}\cdot\Vec{F}_{i}\right)e^{-\beta U}{\rm d}\vec{q}_{1}\cdot\cdot\cdot{\rm d}\vec{q}_{N},\\
+&=\frac{\beta}{V}\frac{\int\cdot\cdot\cdot\int \left(\sum_{i=1}^{N} \vec{q}_{i}\cdot\Vec{F}_{i}\right)e^{-\beta U}{\rm d}\vec{q}_{1}\cdot\cdot\cdot{\rm d}\vec{q}_{N}}{\int\cdot\cdot\cdot\int e^{-\beta U}{\rm d}\vec{q}_{1}\cdot\cdot\cdot{\rm d}\vec{q}_{N}}=\frac{\beta}{V}\left<\sum_{i=1}^{N} \vec{q}_{i}\cdot\Vec{F}_{i}\right>=\frac{\beta}{V}\left<\mathcal{V}\right>,\\
+\end{split}
+\end{equation}
+where $\mathcal{V}=\sum_{i=1}^{N} \vec{q}_{i}\cdot\Vec{F}_{i}$ is the Virial function. Thus the net pressure is given by,
+\begin{equation}
+pV=Nk_{\rm B}T+\left<\sum_{i=1}^{N} \vec{q}_{i}\cdot\Vec{F}_{i}\right>,
+\end{equation}
+where the above expression is known as the Virial equation.
+\section{Grand Canonical Ensemble}
+This ensemble represents an open system where the independent variables are $\mu, V,T$. The probability distribution function in this case is,
+\begin{equation}
+\Xi=\sum_{N=1}^{\infty}e^{\beta \mu N}\frac{1}{N!h^{3N}}\int\cdot\cdot\cdot\int e^{-\beta \mathcal{H}}{\rm d}\vec{q}_{1}\cdot\cdot\cdot{\rm d}\vec{q}_{N}=\sum_{N=1}^{\infty}e^{\beta \mu N}Q_{N},
+\end{equation}
+where $Q_{N}$ is the canonical partition function. Further, the fugacity of the component is defined as
+\begin{equation}
+\begin{split}
+z&=\frac{e^{\beta\mu}}{\lambda^{3}},\\
+z^{\rm ideal}&=\frac{e^{\beta\mu^{\rm ideal}}}{\lambda^{3}}=\frac{e^{\beta k_{\rm B}T\ln{\rho\lambda^{3}}}}{\lambda^{3}}=\rho.
+\end{split}
+\end{equation}
+Therefore for two phases which are in equilibrium, $z_{\rm 1}=z_{\rm 2}$. The potential for this ensemble which is known as the Grand Potential can be obtained in the following way using Legendre transforms,
+\begin{equation}
+\begin{split}
+\Omega(\mu,V,T)&=F(N,V,T)-\mu N,\\
+{\rm d}\Omega(\mu,V,T)&={\rm d}F(N,V,T)-\mu{\rm d}N-N{\rm d}\mu,\\
+&=-S{\rm d}T-P{\rm d}V-N{\rm d}\mu.
+\end{split}
+\end{equation}
+Given this is a open system, the average  and standard deviation of the number of particles in the system can be given by,
+\begin{equation}\label{eq:numberfluctuations}
+\begin{split}
+\left<N\right>&=\frac{1}{\Xi}\sum_{N=1}^{\infty}N e^{\beta \mu N}Q_{N}=\left(\frac{1}{\beta\Xi}\frac{\partial \Xi}{\partial \mu}\right)_{V,T}=k_{\rm B}T\left(\frac{\partial \ln{\Xi}}{\partial \mu}\right)_{V,T},\\
+\left(\frac{\partial \left<N\right>}{\partial \mu}\right)_{V,T}&=k_{\rm B}T\frac{\partial}{\partial \mu}\left(\frac{1}{\Xi}\frac{\partial \Xi}{\partial \mu}\right)=k_{\rm B}T\left(-\frac{1}{\Xi^{2}}\frac{\partial \Xi}{\partial \mu}\frac{\partial \Xi}{\partial \mu}+\frac{1}{\Xi}\frac{\partial^{2} \Xi}{\partial \mu^{2}}\right)=k_{\rm B}T\beta^{2}\left(\left<N^{2}\right>-\left<N\right>^{2}\right),\\
+\left<N^{2}\right>-\left<N\right>^{2}&=k_{\rm B}T\left(\frac{\partial \left<N\right>}{\partial \mu}\right)_{V,T}=k_{\rm B}T\left(\frac{1}{<N>}\frac{\partial \left<N\right>}{\partial \mu}\right)_{V,T}\left<N\right>,
+\end{split}
+\end{equation}
+where a point to note in the last expression is that the term in the brackets is an intensive quantity. Therefore,
+\begin{equation}
+\begin{split}
+\left<N^{2}\right>-\left<N\right>^{2}&\sim \left<N\right>,\\
+\frac{\left(\left<N^{2}\right>-\left<N\right>^{2}\right)^{1/2}}{\left<N\right>}&\sim\frac{1}{\left<N\right>},\\
+\end{split}
+\end{equation}
+thus it can be seen that the ratio of standard deviation  to average scales as $1/\left<N\right>$, indicating that in the thermodynamic limit ($\left<N\right> \rightarrow \infty$), $\frac{\left(\left<N^{2}\right>-\left<N\right>^{2}\right)^{1/2}}{\left<N\right>}\rightarrow 0$ indicating that there is one dominant state. This shows that in the thermodynamic limit, all ensembles are equivalent. 
+\subsection{Relation to Isothermal compressibility}
+The isothermal compressibility, $\chi_{T}$ for a system is given by,
+\begin{equation}
+\chi_{\rm T}=-\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_{T}.
+\end{equation}
+In the canonical ensemble, the Helmholtz free energy, A is an extensive function,
+\begin{equation}
+A=f(N,V,T)=N\phi(\rho,T).
+\end{equation}
+The chemical potential, pressure and there derivatives can then be calculated in the following way,
+\begin{equation}
+\begin{split}
+\mu&=-\left(\frac{\partial A}{\partial N}\right)_{V,T}=\phi(\rho,T)+N\left(\frac{\partial \phi(\rho,T)}{\partial N}\right)_{V,T}=\phi(\rho,T)+N\left(\frac{\partial \phi(\rho,T)}{\partial \rho}\right)_{T}\left(\frac{\partial \rho}{\partial N}\right)_{V,T},\\&=\phi(\rho,T)+\rho\left(\frac{\partial \phi(\rho,T)}{\partial \rho}\right)_{T},\\
+\left(\frac{\partial \mu}{\partial N}\right)_{V,T}&=\frac{1}{V}\left(2\left(\frac{\partial \phi(\rho,T)}{\partial \rho}\right)_{T}+\rho\left(\frac{\partial^{2} \phi(\rho,T)}{\partial \rho^{2}}\right)_{T}\right),\\
+p&=-\left(\frac{\partial A}{\partial V}\right)_{N,T}=-N\left(\frac{\partial \phi(\rho,T)}{\partial V}\right)_{N,T}=-N\left(\frac{\partial \phi(\rho,T)}{\partial \rho}\right)_{T}\left(\frac{\partial \rho}{\partial V}\right)_{N,T}=\rho^{2}\left(\frac{\partial \phi(\rho,T)}{\partial \rho}\right)_{T},\\
+\left(\frac{\partial p}{\partial V}\right)_{N,T}&=-\frac{N}{V^{2}}\left(2\rho\left(\frac{\partial \phi(\rho,T)}{\partial \rho}\right)_{T}+ \rho^{2}\left(\frac{\partial^{2} \phi(\rho,T)}{\partial \rho^{2}}\right)_{T}\right),\\
+&=-\frac{N^{2}}{V^{3}}\left(2\left(\frac{\partial \phi(\rho,T)}{\partial \rho}\right)_{T}+ \rho\left(\frac{\partial^{2} \phi(\rho,T)}{\partial \rho^{2}}\right)_{T}\right)=-\frac{N^{2}}{V^{2}}\left(\frac{\partial \mu}{\partial N}\right)_{V,T},\\
+\frac{1}{\chi_{T}}&=-V\left(\frac{\partial p}{\partial V}\right)_{N,T}=\frac{N^{2}}{V}\left(\frac{\partial \mu}{\partial N}\right)_{V,T}.
+\end{split}
+\end{equation}
+Combining the above expression for $\chi_{T}$ with Eq.~(\ref{eq:numberfluctuations}) and assuming the limit of $N\rightarrow\infty$, the following relation is obtained,
+\begin{equation}
+\begin{split}
+\left<N^{2}\right>-\left<N\right>^{2}&=k_{\rm B}T\left(\frac{\partial N}{\partial \mu}\right)_{V,T},\\
+&=k_{\rm B}T\left<N\right> \rho\chi_{T},\\
+\frac{\left<N^{2}\right>-\left<N\right>^{2}}{\left<N\right>}&=k_{\rm B}T\rho\chi_{T}.
+\end{split}
+\end{equation}
+
+
+
+
+
+
+
+\end{document}

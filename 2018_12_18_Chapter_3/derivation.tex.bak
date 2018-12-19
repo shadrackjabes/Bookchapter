@@ -1,0 +1,201 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=0.5in]{geometry}
+\title{Static Properties of Liquids: Thermodynamics and Structure}
+\date{\today}
+\begin{document}
+\maketitle
+\section{Non interacting particles in the presence of an external field}
+\begin{equation}
+	H(r^N,p^N) = \sum_{i=1}^{N} \frac{p_i^2}{2m} + \sum_{i=1}^{N} \phi(r)
+\end{equation}
+Partition function
+\begin{align}
+	Q(\beta,V,z)& = \sum_{i=1}^{N} e^{\beta \mu N} \frac{1}{h^{3N}N!} \int e^{-\beta [\sum_{i=1}^{N} \frac{p_i^2}{2m}]} dp_1...dp_N  \int e^{-\beta [\sum_{i=1}^{N} \phi(r)]} dr_1...dr_N\\
+	&= \sum_{N = 0 }^{\infty} z^N \frac{1}{N!} [Z(\beta,V,1)]^N = e^{\it{z} Z(\beta,V,1)}
+\end{align}
+we know that $e^x = \sum_{i = 0}^{N} \frac{x_i^N}{N_i!}$
+
+
+similarly we can write,
+$\sum_{i=0}^{N} \frac{(z Z(\beta,V,1))^N}{N!} = e^{z Z(\beta,V,1)}$
+
+\begin{equation}
+	\ln Q (\beta,V,z) = z\frac{1}{\lambda^3}\int  e^{-\beta\phi(\bf{r})} d\bf{r}
+\end{equation}
+
+grand potential $\Omega(\beta,V,z) = -k_BT \ln Q(\beta,V,z)$
+
+\begin{equation}
+	\beta \Omega(\beta,V,z) = -\frac{1}{\lambda^3}\int e^{-\beta u(\bf{r})} d\bf{r}= \beta \Omega[u]
+\end{equation}
+
+$u(r) = \mu - \phi(r)$
+
+barometric formula for the density distribution in the presence of an external field is given by
+\begin{equation}
+	\rho_1(r) = \big< \sum_{i=1}{N}\delta(r-r_i) \big> = \frac{1}{\lambda^3}e^{\beta u(r)}
+\end{equation}
+
+first functional differentiation of $ \beta \Omega[u]$
+\begin{align}
+	\beta \delta \Omega[u] &= -\frac{1}{\lambda^3}\int e^{-\beta u(\bf{r})}\beta\delta u(r) dr\\
+	\frac{\delta \Omega[u]}{\delta u(r)} &= -\rho_1(r)
+\end{align}
+we know that $\int_{-\infty}^{\infty} g(x) \delta(x-x_0) dx = g(x_0)$. Second functional differentiation of $ \beta \Omega[u]$
+\begin{align}
+	\frac{\delta^2 \Omega[u]}{\delta u(r) \delta u(r')} &= -\delta\rho_1(r)\\
+	&= -\beta \frac{1}{\lambda^3} e^{\beta u(r)} \delta u(r)\\
+	&= -\beta \int \rho_1(r)\delta(r-r')\delta u(r') dr\\
+	&= -\beta \rho_1(r)\delta(r-r') < 0
+\end{align}
+
+\section{Interacting system in the presence of an external field}
+\begin{align}
+	H(r^N,p^N)& = \sum_{i=1}^{N} \frac{p_i^2}{2m} + U(r^N)\\
+	&= \sum_{i=1}^{N} \frac{p_i^2}{2m} + \sum_{i=1}^{N} \phi(r)
+	+ \frac{1}{2}\sum_{i=1}^{N} \sum_{j=1}^{N}H(r_{ij})
+\end{align}
+Partition function
+\begin{align}
+	Q(\beta,V,z) &= \sum_{N=0}^{\infty} e^{\beta \mu N} \frac{1}{h^{3N}N!} \int e^{-\beta [\sum_{i=1}^{N} \frac{p_i^2}{2m}]} dp_1...dp_N  \int e^{-\beta [\sum_{i=1}^{N} \phi(r)]} dr_1...dr_N \int e^{-\beta [\sum_{i=1}^{N} \sum_{j \ge i}^{N} H(r_{ij})} dr_1...dr_N\\
+	e^{-\beta \Omega[u]}&= \sum_{N=0}^{\infty} \frac{1}{N!\lambda^{3N}} e^{\beta \mu N} \int. . .\int e^{-\beta \sum_{N=1}^{\infty}\phi(r_i)dr_1. . .dr_N}\\
+	& = \sum_{N=0}^{\infty} \frac{1}{N!\lambda^{3N}} e^{\beta \mu \int\rho(r)dr1...dr_N} \int. . .\int e^{-\beta \sum_{N=1}^{\infty}\phi(r_i)dr_1. . .dr_N}\\
+	& = \sum_{N=0}^{\infty} \frac{1}{N!\lambda^{3N}} \int . . . \int e^{\beta \int \rho(r)u(r)dr1...dr_N} \\
+\end{align}
+
+grand potential can be obtained from $\Omega(\beta, V, z) = -k_BT \ln Q (\beta, V, z) = \Omega[u]$, which is a functional of  $u(r) = \mu - \phi(r)$
+first differentiation of the grand potential gives 
+
+\begin{align}
+	e^{-\beta \Omega[u]}(-\beta \frac{\delta \Omega[u]}{\delta u(r')}) &= \sum_{N=0}^\infty \frac{1}{\lambda^{3N}N!} \int . . . \int e^{\beta \int \rho(r)u(r)dr1...dr_N} \big(\beta \frac{\delta}{\delta u(r')} \int \rho(r) u(r) dr1...dr_N\big) \\
+	& = \sum_{N=0}^\infty \frac{1}{\lambda^{3N}N!} \int . . . \int e^{\beta \int \rho(r)u(r)dr1...dr_N} \big(\beta \int \rho(r) \frac{\delta u(r)}{\delta u(r')}  dr1...dr_N\big)\\ 
+	& = \sum_{N=0}^\infty \frac{1}{\lambda^{3N}N!} \int . . . \int e^{\beta \int \rho(r)u(r)dr1...dr_N} \big(\beta \int \rho(r) \delta(r-r')  dr1...dr_N\big)\\ 
+	& = \sum_{N=0}^\infty \frac{1}{\lambda^{3N}N!} \int . . . \int e^{\beta \int \rho(r)u(r)dr1...dr_N} \big(\beta \int \rho(r') dr^N\big)\\ 
+	\frac{\delta \Omega[u]}{\delta u(r')}& = - \frac{\sum_{N=0}^\infty \frac{1}{\lambda^{3N}N!} \int . . . \int e^{\beta \int \rho(r)u(r)dr1...dr_N} \big(\int \rho(r') dr^N\big)}{e^{-\beta \Omega[u]}}\\ 
+	& = -\big< \rho_1(r')\big>
+\end{align}
+
+second differentiation of the grand potential gives 
+
+\begin{align}
+	\frac{\delta^2 \Omega[u]}{\delta u(r')\delta u(r'')}& = -\beta e^{\beta \Omega} \frac{\delta \Omega[u]}{\delta u(r'')}\sum_{N=0}^{\infty}e^{\beta \mu N} \int . . . \int e^{-\beta \sum_{N=1}^{\infty}\phi(r_i)} \rho(r') dr_1. . .dr_N\\
+	&- e^{\beta \Omega}\sum_{N=0}^{\infty}e^{\beta \mu N}\int . . .  \int e^{-\beta \sum_{N=1}^{\infty}\phi(r_i)} \rho(r') dr_1. . .dr_N
+	(\beta \int \rho(r) \frac{\delta u(r)}{\delta u(r'')}dr)\\
+	& = -\beta \frac{\delta \Omega}{\delta u(r'')}\frac{\delta \Omega}{\delta u(r')} -  e^{\beta \Omega}\sum_{N=0}^{\infty}e^{\beta \mu N}\int . . .  \int e^{-\beta \sum_{N=1}^{\infty}\phi(r_i)} \rho(r') dr_1. . .dr_N
+	(\beta \int \rho(r'')dr)\\
+	& = \beta (\big< \rho(r')\rho(r'')\big> - \big< \rho(r')\big>\big< \rho(r'')\big> 
+\end{align}
+
+\begin{table}[htbp]
+\centering
+	\caption{derivatives of grand potential for interacting and non-interacting systems}
+		\label{tab:functionalderivatives}
+	\begin{tabular}{ccc}
+		derivatives & Ideal & interacting\\
+                \hline
+		$\frac{\delta \Omega[u]}{\delta u(r)}$ & $-\rho_1(r)$ & -$\big<\rho_1(r) \big> = -\rho_1(r)$\\
+                \hline
+		$\frac{\delta^2 \Omega[u]}{\delta u(r) \delta u(r')}$ & $\rho_1(r)\delta(r-r')$ & $-\beta\big< \rho_1(r) \rho_1(r')  \big> \big<\rho_1(r) \big> \big<\rho_1(r') \big>$\\
+                \hline
+\end{tabular}
+\end{table}
+\section{Interfacial fluctuations and solvation free energy of solutes near liquid-water interface}
+Hamaltonian
+\begin{align}
+	H(R_i,\lambda)&= V_\psi(R_1, R_2 ;\lambda) + V_F(R;f)
+\end{align}
+\begin{align}
+	\Omega(\lambda; R_1) &= -k_BT \ln Z(R1;\lambda)\\
+	\Omega(\lambda_{ref}; R_1) &= -k_BT \ln Z(R1;\lambda_{ref})\\
+	\Delta \mu(\lambda; R_1) &= \Omega(\lambda; R_1) - \Omega(\lambda_{ref}; R_1)\\
+	&=  -k_BT \ln \frac{Z(R1;\lambda)}{Z(R1;\lambda_{ref})}\\
+	&=  -k_BT \ln Z(\lambda)\\
+	&\Delta \mu(\lambda; R_1)= \int_{\lambda_{ref}}^\lambda \frac{d \mu(\lambda)}{d\lambda} d \lambda\\
+	&= \int_{\lambda_{ref}}^\lambda \frac{d(-k_BT \ln Z(\lambda))}{d\lambda} d \lambda\\
+	&= -k_BT \int_{\lambda_{ref}}^\lambda \frac{1}{Z}.\frac{dZ(\lambda)}{d\lambda} d \lambda\\
+	&= -k_BT \int_{\lambda_{ref}}^\lambda \frac{1}{Z}\big( -\beta\int. . .\int e^{(-\beta V_\psi(R_1, R_2 ;\lambda)} \big) \frac{dV_\psi(R_1, R_2 ;\lambda)}{d\lambda} d \lambda\\
+	&= \int_{\lambda_{ref}}^\lambda \frac{\int. . .\int e^{(-\beta V_\psi(R_1, R_2 ;\lambda)}}{Z} . \frac{dV_\psi(R_1, R_2 ;\lambda)}{d\lambda} d \lambda\\
+	&= \int_{\lambda_{ref}}^\lambda d \lambda \int dR_2 \rho(R_2;R_1,\lambda)\frac{dV_\psi(R_1, R_2 ;\lambda)}{d\lambda}\\
+\end{align}
+functional derivative of $\Delta \mu$ with respect to the external field, $V_F(R;f)$ can be written as
+\begin{align}
+	\frac{\delta \Delta \mu (\lambda;R_1}{\delta V_F(R;f)}&= \int_{\lambda_{ref}}^\lambda d \lambda \int dR_2 \frac{\rho(R_2;R_1,\lambda)}{\delta V_F(R;f)} \frac{dV_\psi(R_1, R_2 ;\lambda)}{d\lambda}\\
+\end{align}
+\section{density-density correlation function}
+\begin{align}
+	H(r,r') &= \big< (\rho(r) - \big< \rho(r)  \big>) (\rho(r') 	- \big<\rho(r') \big>) \big>\\
+	&= \big< \rho(r) \rho(r') \big> - \big< \rho(r')\big< \rho(r)\big> \big> - \big< \rho(r)\big< \rho(r')\big> \big> + \big< \rho(r')\big>\big< \rho(r)\big>\\
+	&= \big< \rho(r) \rho(r') \big> - \big< \rho(r')\big>\big< \rho(r)\big>\\
+	&= \big< \sum_{i=1}^{N} \sum_{j=1}^{N} \delta(r-r_i)\delta(r'-r_j) \big> - \big< \rho(r')\big>\big< \rho(r)\big>\\
+	&= \big< \sum_{i\ne j}^{N} \sum \delta(r-r_i)\delta(r'-r_j) \big> + \big<\sum_{j=1}^{N} \delta(r-r_i)\delta(r'-r_i) \big> - \big< \rho(r')\big>\big< \rho(r)\big>\\
+	&= \big< \sum_{i\ne j}^{N} \sum \delta(r-r_i)\delta(r'-r_j) \big> + \big<\sum_{j=1}^{N} \delta(r-r')\delta(r'-r_i) \big> - \big< \rho(r')\big>\big< \rho(r)\big>\\
+	&= \big< \sum_{i\ne j}^{N} \sum \delta(r-r_i)\delta(r'-r_j) \big> + \delta(r-r') \big<\sum_{j=1}^{N} \delta(r'-r_i) \big> - \big< \rho(r')\big>\big< \rho(r)\big>\\
+	&= \rho^2(r,r') - \rho^{1}(r) \rho^{1}(r') + \rho^{1}(r) \delta(r-r')
+\end{align}
+\section{Direct correlation function}
+The direct correlation function is obtained by differentiating the helmholtz free energy with respect to $\rho(r)$ because in the helmohltz free energy (i.e., N, V, T) are held constant and are extensive variables, whereas the grand potential is used as functionals to obtain the derivatives with respect to $\delta u(r)$ because the extensive variables in a open system are $\mu, V, T)$ and $u(r) = \mu - \phi(r)$. This is the concept that needs to be understood so as to choose different ensembles. Secondly, when the particles are subjected to an external field then in addition to choosing the ensemble, one has to also make sure the derivatives are written as $\delta$ and not $d$.
+In the case of computing the direct correlation functions, we choose naturally Helmholtz free energy functional $F[\rho_1]$ because the extensive variable subjected to Helmholtz free energy is V, T and not $\mu$. In order to transform from one ensemble to another ensemble with different set of variables without loosing the information we use legender transformation. Here for example we obtain the Helmholtz free energy  from NVE ensemble.
+\begin{align}
+	F &= U(N,V,E) - TS\\
+	dF(N,V,T) &= -PdV - SdT + \mu dN\\
+\end{align}
+Since we have obtained the previous functional derivatives for an open system using the $(\mu, V, T)$ ensemble, perfoming a lengender tranformation on the $(\mu, V, T)$ ensemble to yield canonical ensemble would allow us to use the previously erived functional derivaties as well. Therfore we will now, use the legender transformation on $\Omega[u]$.
+as a legendre transform of $\Omega[u]$:
+\begin{align}
+	\Omega(\mu,V,T) =  F - \mu N\\
+	F &= \Omega(\mu,V,T) + \mu N\\
+	dF(N,V,T) &= -PdV - SdT + \mu dN\\
+	\delta F &= \Omega(\mu,V,T) + \mu \int \phi(r) \delta\rho(r)\\
+\end{align}
+Notice here that $\phi(r)$ and $\delta\rho(r)$ is written because the external variable in the ensemble is $N$ and not $\mu$.
+
+\begin{align}
+	F^{id}[\rho_1] &= \Omega[u] + \int dr u(r) \rho_1(r)\\
+	&= -k_BT\frac{1}{\lambda^3} \int dr e^{\beta u(r)} + \int dr u(r) \rho_1(r)\\
+	&= -k_BT\int dr \rho_1(r) (\ln(\rho_1(r) \lambda^3) - 1 )\\
+	F^{total}[\rho_1] &= \Omega[u] + \int dr u(r) \rho_1(r)\\
+	F^{total}[\rho_1]=&F^{id}[\rho_1] + F^{ex}[\rho_1]\\
+	=&-k_BT\int dr \rho_1(r) (\ln(\rho_1(r) \lambda^3) - 1 ) + F^{ex}[\rho_1]\\
+\end{align}
+first derivative of $F^{total}[\rho_1]$,
+\begin{align}
+	\frac{\delta F^{total}[\rho_1]}{\delta \rho_1(r)} = u(r)\\
+\end{align}
+from which follows the barometric law by substituting the $F^{total}[\rho_1]$
+\begin{align}
+	\rho_1(r) &= \frac{1}{\lambda^3}e^{u(r) + k_BTc_1(r)}\\
+	k_BT \ln(\rho_1(r) \lambda^3) = k_BT c_1(r) + u(r)\\
+\end{align}
+second derivative of the $F^{total}[\rho_1]$ yields,
+the relation between the total correlation function and direct correlation function also known as Ornstein-Zernike equation
+\begin{align}
+	\rho_2(r,r') &= \rho_1(r)\rho(r') + \rho_1(r)\rho(r')c(r,r') + \rho_1(r) \int dr'' c(r,r')[\rho_2(r'',r')\\
+	&- \rho_1(r'')\rho(r') ]\\
+	h(r,r') &= c(r,r') + \int dr'' c(r,r'')\rho_1(r'')h(r'',r')
+\end{align}
+fouriers transform of the above equation allows us to relate the static structure factor with the spatial correlation functions.
+\begin{align}
+	h(k) &= c(k) + c(k)\rho h(k)\\
+	&=\int dr e^{ik.r}h(r)\\
+\end{align}
+
+\begin{table}[htbp]
+\centering
+	\caption{derivatives of Helmholtz free energy functional $F[\rho_1]$}
+		\label{tab:directcorrelation}
+	\begin{tabular}{ccc}
+		derivatives & interacting\\
+                \hline
+		$\frac{\delta F^{ex}[\rho_1]}{\delta \rho_1(r)}$ & $c_1(r)$\\
+                \hline
+		$\frac{\delta^2 F^{ex}[\rho_1]}{\delta \rho_1(r) \delta \rho_1(r')}$ & $c_2(r,r')$\\
+                \hline
+		$\frac{\delta F^{total}[\rho_1]}{\delta \rho_1(r)}$ & $u(r)$\\
+                \hline
+		$\frac{\delta ^2 F^{total}[\rho_1]}{\delta \rho_1(r) \delta \rho_1(r')}$ & $\rho _2(r,r')$\\
+                \hline
+\end{tabular}
+\end{table}
+\end{document}

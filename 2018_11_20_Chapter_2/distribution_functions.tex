@@ -1,0 +1,123 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=0.5in]{geometry}
+\title{Distribution functions}
+\date{}
+\begin{document}
+\maketitle
+\section{Closed systems}
+In this section we consider a system where the independent variables are $N,V,T$ (canonical ensemble). The probability distribution function for this system is given by the following expression,
+\begin{equation}
+P(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{N},\vec{p}_{1}\cdot\cdot\cdot \vec{p}_{N})=\frac{e^{-\beta \mathcal{H}}}{N!h^{3N}Q_{N}},
+\end{equation}
+where $Q_{N}$ is the partition function. One can then integrate out the momentum degrees of freedom to obatin
+\begin{equation}
+P(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{N})=\frac{e^{-\beta U(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{N})}}{\mathcal{Z}_{N}},
+\end{equation}
+where $\mathcal{Z}_{N}$ is the configurational partition function. An important set of properties which is used to understand the structural aspects in the system are the $n (<N)$ body correlations. The $n$ body correlation can be obtained from the above probability distribution in the following way,
+\begin{equation}
+P^{(n)}_{N}(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{n})=\frac{1}{\mathcal{Z}_{N}}\int\cdot\cdot\cdot\int e^{-\beta U(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{N})}{\rm d}\vec{q}_{n+1}\cdot\cdot\cdot{\rm d}\vec{q}_{N},
+\end{equation}
+where $P^{(n)}_{N}$ is the probability of finding $n$ particles at $\vec{q}_{i}=\{\vec{q}_{1}\cdot\cdot\cdot\vec{q}_{n}\}$ irrespective of the configurations of the other $N-n$ particles. In the system consisting of identical particles, one can choose these $n$ particles in $N!/(N-n)!$ ways. Following this, we define a modified n-body correlation function which has the following form,
+\begin{equation}\label{eq:density}
+\rho^{(n)}_{N}(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{n})=\frac{N!}{\left(N-n\right)!}P^{(n)}_{N}(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{n}).
+\end{equation}
+The difference between $\rho^{(n)}_{N}(q_{1}\cdot\cdot\cdot q_{n})$ and $P^{(n)}_{N}(q_{1}\cdot\cdot\cdot q_{n})$ is that after integration over all ($N$) particle positions , the former gives $N!/(N-n)!$ whereas the latter gives 1. In case of a mixture of $A$ and $B$ particles, the $n=n_{A}+n_{B}$ correlation takes the following form, 
+\begin{equation}
+\rho^{(n_{A},n_{B})}_{N}(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{n})=\frac{N_{A}!N_{B}!}{\left(N-n_{\rm A}!\right)!\left(N-n_{B}\right)!}\frac{1}{\mathcal{Z}_{N}}\int\cdot\cdot\cdot\int e^{-\beta U(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{N})}{\rm d}\vec{q}_{n_{A}+1}\cdot\cdot\cdot{\rm d}\vec{q}_{N_{A}}{\rm d}\vec{q}_{n_{B}+1}\cdot\cdot\cdot\vec{q}_{N_{B}}.
+\end{equation}
+Coming back to the system $N$ identical particles, the one body correlation is then
+\begin{equation}
+\rho^{(1)}_{N}(\vec{q}_{1})=N P^{(1)}_{N}(q_{1}\cdot\cdot\cdot q_{n}).
+\end{equation}
+In the case of ideal gas, the above correlation reduces to,
+\begin{equation}
+\rho^{(1)}_{N, {\rm ideal}}(\vec{q}_{1})=\frac{N}{V}=\rho.
+\end{equation}
+Following the above approach, the $n$ body correlation for an ideal gas is,
+\begin{equation}
+\rho^{(n)}_{N,{\rm ideal}}(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{n})=\frac{N!}{(N-n)!V^{n}}.
+\end{equation}
+One can then define a normalized distriubution function, $g^{(n)}_{N}$ which goes to unity when the system is in an ideal state,
+\begin{equation}
+g^{(n)}_{N}=\rho^{(n)}_{N}(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{n})\frac{V^{n}}{N(N-1)\cdot\cdot\cdot(N-n)}=\frac{\rho^{(n)}_{N}}{\rho^{n}}\frac{1}{(1-1/N)\cdot\cdot\cdot(1-n/N)}\approx\frac{\rho^{(n)}_{N}}{\rho^{n}},
+\end{equation}
+where the last approximation is valid when $N>>n$. Let us consider the two body correlation $g^{(2)}_{N}$ which is known as the radial distribution function and is extensively used for characterizing the local structure or correlation in soft matter systems.
+\begin{equation}
+g^{(2)}_{N}=\frac{\rho^{(2)}_{N}}{\rho^{2}}.
+\end{equation}
+Applying the above relation in Eq.~(\ref{eq:density}), we obtain,
+\begin{equation}
+\rho^{2}g^{(2)}_{N}(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{n})=\frac{N!}{\left(N-2\right)!}P^{(2)}_{N}(q_{1},q_{2}),
+\end{equation}
+integrating the above over the positions of all particles it can be seen that
+\begin{equation}
+\int\int\rho^{2}g^{(2)}_{N}(\vec{q}_{1},\vec{q}_{2}){\rm d}\vec{q}_{1}{\rm d}\vec{q}_{2}=\int\int\frac{N!}{\left(N-2\right)!}P^{(2)}_{N}(\vec{q}_{1},\vec{q}_{n}){\rm d}\vec{q}_{1}{\rm d}\vec{q}_{2}=N(N-1),
+\end{equation}
+if the interactions in the system are only dependent on the difference of the distance vectors then the above relation gets modified to
+\begin{equation}
+\begin{split}
+\int\int\rho^{2}g^{(2)}_{N}(\vec{q}_{2}-\vec{q}_{1}){\rm d}\vec{q}_{1}{\rm d}\vec{q}_{2}&=N(N-1),\\
+\int\int\rho^{2}g^{(2)}_{N}(\vec{q}_{12}){\rm d}\vec{q}_{12}{\rm d}\vec{Q}_{12}&=N(N-1),\\
+V\rho^{2}\int g^{(2)}_{N}(\vec{q}_{12}){\rm d}\vec{q}_{12}&=N(N-1),\\
+\rho\int g^{(2)}_{N}(\vec{q}_{12}){\rm d}\vec{q}_{12}&=(N-1),\\
+\end{split}
+\end{equation}
+if the interactions are rotationally invariant then the above expression gets simplifies to
+\begin{equation}
+\begin{split}
+4\pi\rho\int g^{(2)}_{N}(|\vec{q}_{12}|)|\vec{q}_{12}|^{2}{\rm d}|\vec{q}_{12}|&=(N-1),\\
+&=N\left(1-\frac{1}{N}\right),\\
+&\approx N,
+\end{split}
+\end{equation}
+where the last approximation is for the large $N$ limit.
+\section{Open systems}
+In the last section, we saw the distribution functions for a canonical ensemble. Let us extend them to the case of a grand canonical ensemble where the independent variables are $\mu,V,T$. As the number of particles in the system is not fixed, the distribution function in Eq.~(\ref{eq:density}) takes the following form
+\begin{equation}
+\rho^{(n)}_{N}(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{n})=\sum_{N=n}^{\infty}\frac{N!}{\left(N-n\right)!}P^{(n)}_{N}(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{n}),
+\end{equation}
+where 
+\begin{equation}
+P^{(n)}_{N}(q_{1}\cdot\cdot\cdot q_{n})=e^{\beta\mu N}\frac{1}{\mathcal{Z}^{\prime}}\int\cdot\cdot\cdot\int e^{-\beta U(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{N})}{\rm d}\vec{q}_{n+1}\cdot\cdot\cdot{\rm d}\vec{q}_{N},
+\end{equation}
+where $\mathcal{Z}^{\prime}$ is the configurational part of the grand canonical partition function.
+Integrating the above expression over all the particle positions gives,
+\begin{equation}
+\begin{split}
+\int\cdot\cdot\cdot\int\rho^{(n)}_{N}(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{n}){\rm d}\vec{q}_{1}\cdot\cdot\cdot{\rm d} \vec{q}_{n}&=\sum_{N=n}^{\infty}\frac{N!}{\left(N-n\right)!}\int \cdot\cdot\cdot \int P^{(n)}_{N}(q_{1}\cdot\cdot\cdot q_{n}){\rm d}\vec{q}_{1}\cdot\cdot\cdot{\rm d}\vec{q}_{n},\\
+&=\sum_{N=n}^{\infty}\frac{N!}{\left(N-n\right)!}e^{\beta\mu N}\frac{1}{\mathcal{Z}^{\prime}}\int\cdot\cdot\cdot\int e^{-\beta U(\vec{q}_{1}\cdot\cdot\cdot \vec{q}_{N})}{\rm d}\vec{q}_{1}\cdot\cdot\cdot{\rm d}\vec{q}_{N},\\
+&=\left<\frac{N!}{\left(N-n\right)!}\right>,
+\end{split}
+\end{equation}
+so, the relation for the one and two body correlation are,
+\begin{equation}
+\begin{split}
+\int\rho^{(1)}_{N}(\vec{q}_{1}){\rm d}\vec{q}_{1}&=\left<N\right>,\\
+\int\int\rho^{(2)}_{N}(\vec{q}_{1},\vec{q}_{2}){\rm d}\vec{q}_{1}{\rm d}\vec{q}_{2}&=\left<N(N-1)\right>=\left<N^{2}\right>-\left<N\right>.\\
+\end{split}
+\end{equation}
+Following from the previous section, the one body correlation in the ideal gas case is
+\begin{equation}
+\rho^{(1)}_{N,{\rm ideal}}(\vec{q}_{1})=\sum_{N=1}^{\infty}N P^{(n)}_{N,{\rm ideal}}(\vec{q}_{1})=\frac{\left<N\right>}{V}.
+\end{equation}
+Further, the normalised two body correlation is,
+\begin{equation}
+\begin{split}
+g^{(2)}_{N}&=\frac{\rho^{(2)}_{N}}{\left(\rho^{(1)}_{N,{\rm ideal}}\right)^{2}},\\
+\int\int \left(\rho^{(1)}_{N,{\rm ideal}}\right)^{2}g^{(2)}_{N}(\vec{q}_{1},\vec{q}_{2}){\rm d}\vec{q}_{1}{\rm d}\vec{q}_{2}&=\left<N^{2}\right>-\left<N\right>.
+\end{split}
+\end{equation}
+The total correlation function $h(\vec{q}_{1},\vec{q}_{2})$ is the difference between the correlation in the system to that in the ideal state and is given by,
+\begin{equation}
+\begin{split}
+h(\vec{q}_{1},\vec{q}_{2})&=g^{(2)}_{N}(\vec{q}_{1},\vec{q}_{2})-1,\\
+\int\int \left(\rho^{(1)}_{N,{\rm ideal}}\right)^{2}h(\vec{q}_{1},\vec{q}_{2}){\rm d}\vec{q}_{1}{\rm d}\vec{q}_{2}&=\int\int \left(\rho^{(1)}_{N,{\rm ideal}}\right)^{2}\left(g^{(2)}_{N}(\vec{q}_{1},\vec{q}_{2})-1\right){\rm d}\vec{q}_{1}{\rm d}\vec{q}_{2},\\&=\int\int \left(\rho^{(1)}_{N,{\rm ideal}}\right)^{2}g^{(2)}_{N}(\vec{q}_{1},\vec{q}_{2}){\rm d}\vec{q}_{1}{\rm d}\vec{q}_{2}-\int\int \left(\rho^{(1)}_{N,{\rm ideal}}\right)^{2}{\rm d}\vec{q}_{1}{\rm d}\vec{q}_{2},\\
+&=\left<N^{2}\right>-\left<N\right>-\left<N\right>^{2},\\
+&=\left<N\right>\left(\frac{\left<N^{2}\right>-\left<N\right>^{2}}{\left<N\right>}-1\right),\\
+&=\left<N\right>k_{\rm B}T\rho^{(1)}_{N,{\rm ideal}}\chi_{T},
+\end{split}
+\end{equation}
+where the last equality in applicable in the thermodynamic limit. A point to note here is that the connection between the radial distribution function and the isothermal compressibility can only be made in the grand canonical ensemble.
+\end{document}
